@@ -9,11 +9,6 @@ image: https://source.unsplash.com/Pv3XsrLgvOk/1000x600
 
 Once again he glanced at his rival in the opposite cubicle. Something seemed to tell him with certainty that Tillotson was busy on the same job as himself. There was no way of knowing whose version would finally be adopted, but he felt a profound conviction that it would be his own
 
-- Peraravit Themis deserat et stetit taedae quodcumque
-- Grave invitae usque et terraque
-- Spargitque hi dixi
-- Danais oris Ulixes
-
 ## Mare torrentur
 
 Mare torrentur tenuerunt Iovemque crudelis erat non manuque nullaque Pyreneus,
@@ -23,7 +18,12 @@ sectus his tamen. Hora graves iam prospiciunt, subito spargit germanam _utve_,
 inmeritas frontemque tempora. Frustra stratosque possim trepidare squamis, os,
 tum ipse prodesse acuta Phobetora e viscera, munera!
 
-![Street Art Image](/posts/chris-malinao-burgett-1360757-unsplash.jpg)
+- Peraravit Themis deserat et stetit taedae quodcumque
+- Grave invitae usque et terraque
+- Spargitque hi dixi
+- Danais oris Ulixes
+
+![Street Art Image](https://source.unsplash.com/GqpbdngfiLo/600x400)
 
 ## Siqua transieram in parte
 

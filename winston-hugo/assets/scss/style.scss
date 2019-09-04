@@ -4,32 +4,32 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,400,500,600,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
 
-$primary: #fed700;
-// $primary: #e8e3e7;
-$primary: #ffffff;
-// $primary: #ff8cb5;
-// $primary: #fff;
-$secondary: #e24242;
-// $secondary: #42e25d;
-// $secondary: saturate(adjust-hue($primary, 70%), 50%);
+$primary: {{ .Site.Data.theme.primary | default "#ffffff" }};
+$secondary: {{ .Site.Data.theme.secondary | default "#424de2" }};
+$black: {{ .Site.Data.theme.black | default "#1C1C1C" }};
+$carbon: {{ .Site.Data.theme.carbon | default "#383838" }};
+$font-family-heading: {{ .Site.Data.theme.fontFamilyHeading | default "'Poppins', sans-serif" }};
+$font-family-paragraph: {{ .Site.Data.theme.fontFamilyParagraph | default "Helvetica, sans-serif" }};
+$font-family-mono: {{ .Site.Data.theme.fontFamilyMono | default "monospace" }};
 
-$black: rgb(46, 44, 33);
-$carbon: #676363;
-// $font-family-heading: Helvetica;
-// $font-family-heading: 'Gothic A1', sans-serif;
-// $font-family-heading: 'Rubik', sans-serif;
-$font-family-heading: 'Poppins', sans-serif;
-// $font-family-heading: 'Merriweather', sans-serif;
-$font-family-paragraph: Helvetica, sans-serif;
-$font-family-mono: monospace;
+$breakpoints: (
+  'small':  767px,
+  'medium': 992px,
+  'large':  1200px
+);
 
+// @import 'theme/mustard';
+@import 'breakpoints';
 @import 'pygments/github';
 
 body {
   background-color: $primary;
   font-family: $font-family-paragraph;
   margin: 0;
-  padding: 50px 50px 50px 50px;
+  padding: 30px;
+  @include breakpoint('small') {
+    padding: 50px 50px 50px 50px;
+  }
 }
 
 .wrapper {
@@ -153,8 +153,8 @@ a {
     margin-bottom: 20px;
   }
   h1 {
-    font-size: 40px;
     font-family: $font-family-heading;
+    font-size: 40px;
     line-height: 1.6;
     font-weight: bold;
     color: $black;
@@ -165,8 +165,9 @@ a {
     }
   }
   h2 {
-    font-size: 30px;
     font-family: $font-family-heading;
+    font-size: 30px;
+    line-height: 1.4;
     font-weight: bold;
     color: $black;
     margin-top: 30px;
@@ -255,7 +256,7 @@ a {
 }
 
 .paper {
-  background: white;
+  background: $primary;
   // border-radius: 4px;
   border-radius: 1px 1px 20px 0 rgba(0, 0, 0, 0.2);
   padding: 40px;
