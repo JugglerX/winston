@@ -1,0 +1,16 @@
+{{ define "header_css" }}{{ end }}
+{{ define "body_classes" }}page-posts-single{{ end }}
+{{ define "header_classes" }}header-transparent{{ end }}
+
+{{ define "main" }}
+<div class="post">
+  {{ partial "author.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{ if .Params.image }}
+    <img class="post-image" src="{{ .Params.image | relURL }}" />
+  {{ end }}
+  <div class="content {{ if .Site.Data.theme.paper }}paper{{ end }}">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}

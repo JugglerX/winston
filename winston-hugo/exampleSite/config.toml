@@ -1,0 +1,23 @@
+baseURL = "www.example.com"
+languageCode = "en-us"
+title = "Winston."
+themesDir = "../.."
+theme = "winston-hugo"
+
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsUseClasses = true
+
+[[menu.main]]
+	name = "Blog"
+	url = "/posts/"
+    weight = 1
+
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+
+[permalinks]
+  post = "/:year/:month/:day/:slug/"
+  pages = "/:filename/"
