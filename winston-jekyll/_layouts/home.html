@@ -6,7 +6,7 @@ body_classes: page-home
 {{content}}
 
 {% if site.data.theme.showPostsOnHomepage %}
-{% for post in site.blogs %}
+{% for post in site.blog %}
 <div class="post post-summary">
   <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
   <div class="post-date">{{ post.date }}</div>

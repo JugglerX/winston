@@ -2,10 +2,6 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-const yamlFront = require('yaml-front-matter');
-const gh = require('parse-github-url');
-const axios = require('axios');
-const im = require('imagemagick');
 
 const root = path.resolve(__dirname);
 const scssFolder = path.join(root, './scss');
@@ -17,12 +13,34 @@ const dataFolder = path.join(root, './data');
 const themes = {
   hugo: {
     ssg: 'hugo',
-    themeFolder: './winston-hugo',
-    scssFolder: './winston-hugo/assets/scss',
-    jsFolder: './winston-hugo/assets/js',
-    imagesFolder: './winston-hugo/static/images',
-    contentFolder: './winston-hugo/exampleSite/content',
-    dataFolder: './winston-hugo/exampleSite/data',
+    themeFolder: 'winston-hugo',
+    scssFolder: 'winston-hugo/assets/scss',
+    jsFolder: 'winston-hugo/assets/js',
+    imagesFolder: 'winston-hugo/static/images',
+    contentFolder: 'winston-hugo/exampleSite/content',
+    dataFolder: 'winston-hugo/exampleSite/data',
+    content: [
+      {
+        src: '_index.md',
+        dst: 'exampleSite/content/_index.md',
+      },
+      {
+        src: 'pages/about.md',
+        dst: 'exampleSite/content/pages/about.md',
+      },
+      {
+        src: 'posts/_index.md',
+        dst: 'exampleSite/content/posts/_index.md',
+      },
+      {
+        src: 'posts/post1.md',
+        dst: 'exampleSite/content/posts/post1.md',
+      },
+      {
+        src: 'posts/post2.md',
+        dst: 'exampleSite/content/posts/post2.md',
+      },
+    ],
   },
   jekyll: {
     ssg: 'jekyll',
@@ -32,6 +50,28 @@ const themes = {
     imagesFolder: './winston-jekyll/images',
     contentFolder: './winston-jekyll/_posts',
     dataFolder: './winston-jekyll/_data',
+    content: [
+      {
+        src: '_index.md',
+        dst: 'index.md',
+      },
+      {
+        src: 'pages/about.md',
+        dst: 'about.md',
+      },
+      {
+        src: 'posts/_index.md',
+        dst: 'blog.md',
+      },
+      {
+        src: 'posts/post1.md',
+        dst: 'collections/_blog/post1.md',
+      },
+      {
+        src: 'posts/post2.md',
+        dst: 'collections/_blog/post2.md',
+      },
+    ],
   },
   hexo: {
     ssg: 'hexo',
@@ -40,37 +80,97 @@ const themes = {
     jsFolder: './winston-hexo/themes/winston/source/js',
     imagesFolder: './winston-hexo/themes/winston/source/images',
     contentFolder: './winston-hexo/source',
+    dataFolder: './winston-hexo/_data',
+    content: [
+      {
+        src: '_index.md',
+        dst: 'index.md',
+      },
+      {
+        src: 'pages/about.md',
+        dst: 'about.md',
+      },
+      {
+        src: 'post/_index.md',
+        dst: 'blog.md',
+      },
+    ],
   },
 };
 
-for (let ssg in themes) {
-  const theme = themes[ssg];
+console.log('Copying Files...');
 
-  fs.copy(scssFolder, theme.scssFolder, err => {
-    if (err) return console.error(err);
-    console.log(`copied ${scssFolder} folder => ${theme.scssFolder}`);
-  });
-  fs.copy(jsFolder, theme.jsFolder, err => {
-    if (err) return console.error(err);
-    console.log(`copied ${jsFolder} folder => ${theme.jsFolder}`);
-  });
-  fs.copy(imagesFolder, theme.imagesFolder, err => {
-    if (err) return console.error(err);
-    console.log(`copied ${imagesFolder} folder => ${theme.imagesFolder}`);
-  });
+async function copyFiles() {
+  for (let ssg in themes) {
+    const theme = themes[ssg];
 
-  switch (theme.ssg) {
-    case 'hugo':
-      copyHugo(theme);
-      break;
-    case 'jekyll':
-      copyJekyll(theme);
-      break;
-    case 'hexo':
-      copyHexo(theme);
-      break;
+    console.log(`\n${theme.ssg}`);
+    console.log(`Copying ${theme.ssg} assets...`);
+
+    try {
+      await fs
+        .remove(theme.dataFolder)
+        .then(() => console.log(`Remove\t${theme.dataFolder}`));
+      await fs
+        .copy(dataFolder, theme.dataFolder)
+        .then(() => console.log(`Copy\t${theme.dataFolder}`));
+      await fs
+        .remove(theme.scssFolder)
+        .then(() => console.log(`Removed ${theme.scssFolder}`));
+      await fs
+        .copy(scssFolder, theme.scssFolder)
+        .then(() => console.log(`Copied ${theme.scssFolder}`));
+      await fs
+        .remove(theme.jsFolder)
+        .then(() => console.log(`Removed ${theme.jsFolder}`));
+      await fs
+        .copy(jsFolder, theme.jsFolder)
+        .then(() => console.log(`Copied ${theme.jsFolder}`));
+      await fs
+        .remove(theme.imagesFolder)
+        .then(() => console.log(`Removed ${theme.imagesFolder}`));
+      await fs
+        .copy(imagesFolder, theme.imagesFolder)
+        .then(() => console.log(`Copied ${theme.imagesFolder}`));
+    } catch (err) {
+      console.error(err);
+    }
+
+    console.log(`\nCopying ${theme.ssg} files...`);
+
+    try {
+      for (let page of theme.content) {
+        await fs
+          .copy(
+            path.join(contentFolder, page.src),
+            path.join(theme.themeFolder, page.dst)
+          )
+          .then(() =>
+            console.log(
+              `Copied ${(path.join(contentFolder, page.src),
+              path.join(theme.themeFolder, page.dst))}`
+            )
+          );
+      }
+    } catch (err) {
+      console.error(err);
+    }
+
+    // switch (theme.ssg) {
+    //   case 'hugo':
+    //     copyHugo(theme);
+    //     break;
+    //   case 'jekyll':
+    //     copyJekyll(theme);
+    //     break;
+    //   case 'hexo':
+    //   copyHexo(theme);
+    //   break;
+    // }
   }
 }
+
+copyFiles();
 
 function copyHugo(theme) {
   // Copy Content Folder
@@ -94,63 +194,68 @@ function copyHugo(theme) {
   });
 }
 
-function copyJekyll(theme) {
-  // Copy Data Folder
-  fs.remove(theme.dataFolder, err => {
-    if (err) return console.error(err);
-    console.log(`removed ${theme.dataFolder} folder`);
-    fs.copy(dataFolder, theme.dataFolder, err => {
-      if (err) return console.error(err);
-      console.log(`copied ${dataFolder} folder => ${theme.dataFolder}`);
-    });
-  });
-
-  fs.copy(
-    path.join(contentFolder, '/_index.md'),
-    path.join(theme.themeFolder, '/index.md'),
-    err => {
-      if (err) return console.error(err);
-      console.log(
-        `copied ${path.join(contentFolder, '/_index.md')} folder => ${path.join(
-          theme.themeFolder,
-          '/index.md'
-        )}`
-      );
-    }
-  );
-
-  fs.copy(
-    path.join(contentFolder, '/pages/about.md'),
-    path.join(theme.themeFolder, '/about.md'),
-    err => {
-      if (err) return console.error(err);
-      console.log(
-        `copied ${path.join(
-          contentFolder,
-          '/pages/about.md'
-        )} folder => ${path.join(theme.themeFolder, '/about.md')}`
-      );
-    }
-  );
-
-  fs.remove(path.join(theme.themeFolder, '/_posts'), err => {
-    if (err) return console.error(err);
-    console.log(`removed ${path.join(theme.themeFolder, '/_posts')} folder`);
-
-    fs.copy(
-      path.join(contentFolder, '/posts'),
-      path.join(theme.themeFolder, '/_posts'),
-      err => {
-        if (err) return console.error(err);
-        console.log(
-          `copied ${path.join(contentFolder, '/posts')} folder => ${path.join(
-            theme.themeFolder,
-            '/_posts'
-          )}`
-        );
-      }
-    );
-  });
+async function copyJekyll(theme) {
+  // try {
+  //   await fs
+  //     .remove(theme.dataFolder)
+  //     .then(() => console.log(`Removed ${theme.dataFolder}`));
+  //   await fs
+  //     .copy(dataFolder, theme.dataFolder)
+  //     .then(() => console.log(`Copied ${(dataFolder, theme.dataFolder)}`));
+  //   await fs
+  //     .copy(
+  //       path.join(contentFolder, '/_index.md'),
+  //       path.join(theme.themeFolder, '/index.md')
+  //     )
+  //     .then(() => console.log(`Copied ${(dataFolder, theme.dataFolder)}`));
+  // } catch (err) {
+  //   console.error(err);
+  // }
+  // // Copy Homepage
+  // fs.copy(
+  //   path.join(contentFolder, '/_index.md'),
+  //   path.join(theme.themeFolder, '/index.md'),
+  //   err => {
+  //     if (err) return console.error(err);
+  //     console.log(
+  //       `copied ${path.join(contentFolder, '/_index.md')} folder => ${path.join(
+  //         theme.themeFolder,
+  //         '/index.md'
+  //       )}`
+  //     );
+  //   }
+  // );
+  // // Copy About Page
+  // fs.copy(
+  //   path.join(contentFolder, '/pages/about.md'),
+  //   path.join(theme.themeFolder, '/about.md'),
+  //   err => {
+  //     if (err) return console.error(err);
+  //     console.log(
+  //       `copied ${path.join(
+  //         contentFolder,
+  //         '/pages/about.md'
+  //       )} folder => ${path.join(theme.themeFolder, '/about.md')}`
+  //     );
+  //   }
+  // );
+  // fs.remove(path.join(theme.themeFolder, '/_posts'), err => {
+  //   if (err) return console.error(err);
+  //   console.log(`removed ${path.join(theme.themeFolder, '/_posts')} folder`);
+  //   fs.copy(
+  //     path.join(contentFolder, '/posts'),
+  //     path.join(theme.themeFolder, '/_posts'),
+  //     err => {
+  //       if (err) return console.error(err);
+  //       console.log(
+  //         `copied ${path.join(contentFolder, '/posts')} folder => ${path.join(
+  //           theme.themeFolder,
+  //           '/_posts'
+  //         )}`
+  //       );
+  //     }
+  //   );
+  // });
 }
 
 function copyHexo(theme) {
