@@ -30,15 +30,15 @@ const themes = {
       },
       {
         src: 'posts/_index.md',
-        dst: 'exampleSite/content/posts/_index.md',
+        dst: 'exampleSite/content/blog/_index.md',
       },
       {
         src: 'posts/post1.md',
-        dst: 'exampleSite/content/posts/post1.md',
+        dst: 'exampleSite/content/blog/post1.md',
       },
       {
         src: 'posts/post2.md',
-        dst: 'exampleSite/content/posts/post2.md',
+        dst: 'exampleSite/content/blog/post2.md',
       },
     ],
   },

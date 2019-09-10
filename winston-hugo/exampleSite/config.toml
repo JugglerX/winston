@@ -7,6 +7,7 @@ theme = "winston-hugo"
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsUseClasses = true
+paginate = 2
 
 [permalinks]
   post = "/:year/:month/:day/:slug/"

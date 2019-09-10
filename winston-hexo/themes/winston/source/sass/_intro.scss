@@ -1,0 +1,34 @@
+.intro {
+  h1 {
+    font-family: $font-family-heading;
+    font-size: 90px;
+    line-height: 96px;
+    width: 80%;
+    color: $black;
+    strong {
+      color: $secondary;
+    }
+  }
+  h2 {
+    font-family: $font-family-heading;
+    font-size: 50px;
+    line-height: 56px;
+    width: 80%;
+    color: $black;
+  }
+  p {
+    font-size: 22px;
+    line-height: 28px;
+    color: $carbon;
+  }
+  a {
+    color: $secondary;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  img {
+    margin-bottom: 50px;
+  }
+}

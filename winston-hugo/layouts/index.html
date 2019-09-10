@@ -3,14 +3,20 @@
 
 {{ define "main" }}
 
+<div class="intro">
+  <h1>{{ .Title }}{{ if .Site.Data.theme.addDot }}<span class="dot">.</span>{{ end }}</h1>
+  <p>{{ .Params.description }}</p>
+</div>
+
 {{.Content}}
 
 {{ if .Site.Data.theme.showPostsOnHomepage }}
-  {{ range where .RegularPages "Type" "posts"}}
-    {{ .Render "summary" }}
-  {{ end }}
+{{ $paginator := .Paginate (where .RegularPages "Type" "blog") }}
+{{ range $paginator.Pages }}
+{{ .Render "summary" }}
 {{ end }}
-
+{{ template "_internal/pagination.html" . }}
+{{ end }}
 {{ end }}
 
 {{ define "footer_js" }}

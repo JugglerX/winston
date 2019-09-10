@@ -1,8 +1,10 @@
 {
   "google_analytics_id": "",
-  "paper": true,
+  "paper": false,
   "edgy": true,
   "showPostsOnHomepage": true,
+  "showAuthor": true,
+  "addDot": true,
   "primary": "#ffffff",
   "secondary": "#424de2",
   "black": "#1C1C1C",

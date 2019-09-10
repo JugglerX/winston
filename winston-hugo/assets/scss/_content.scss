@@ -1,0 +1,98 @@
+.content {
+  font-size: 18px;
+  font-family: $font-family-paragraph;
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: $font-family-paragraph;
+    color: $carbon;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: $font-family-heading;
+    font-size: 40px;
+    line-height: 1.6;
+    font-weight: bold;
+    color: $black;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+  h2 {
+    font-family: $font-family-heading;
+    font-size: 30px;
+    line-height: 1.4;
+    font-weight: bold;
+    color: $black;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+  h3 {
+    font-size: 1.6rem;
+    font-family: $font-family-heading;
+    color: $black;
+    line-height: 1.2;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  ul,
+  ol {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    list-style: disc;
+    li {
+      font-size: 18px;
+      line-height: 20px;
+      margin-bottom: 10px;
+      margin-left: 20px;
+      color: $carbon;
+    }
+  }
+  a {
+    color: $secondary;
+    text-decoration: underline;
+    font-weight: bold;
+    &:hover {
+      color: $secondary;
+    }
+  }
+  blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-left: 4px solid $secondary;
+    padding-left: 40px;
+  }
+  blockquote p {
+    display: inline;
+    color: $black;
+  }
+  img {
+    margin: 40px 0 40px 0;
+    max-width: 100%;
+    height: auto;
+  }
+  code,
+  pre {
+    font-family: $font-family-mono;
+  }
+  .highlight {
+    pre {
+      border-radius: 3px;
+      font-size: 14px;
+      line-height: 19px;
+      padding: 30px;
+      overflow: auto;
+      font-family: $font-family-mono;
+    }
+  }
+}
