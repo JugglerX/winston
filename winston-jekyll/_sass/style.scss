@@ -4,18 +4,18 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,400,500,600,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
 
-$primary: {{ .Site.Data.theme.primary | default "#ffffff" }};
-$secondary: {{ .Site.Data.theme.secondary | default "#424de2" }};
-$black: {{ .Site.Data.theme.black | default "#1C1C1C" }};
-$carbon: {{ .Site.Data.theme.carbon | default "#383838" }};
-$font-family-heading: {{ .Site.Data.theme.fontFamilyHeading | default "'Poppins', sans-serif" }};
-$font-family-paragraph: {{ .Site.Data.theme.fontFamilyParagraph | default "Helvetica, sans-serif" }};
-$font-family-mono: {{ .Site.Data.theme.fontFamilyMono | default "monospace" }};
+$primary: #ffffff;
+$secondary: #424de2;
+$black: #1c1c1c;
+$carbon: #383838;
+$font-family-heading: 'Poppins', sans-serif;
+$font-family-paragraph: Helvetica, sans-serif;
+$font-family-mono: 'monospace';
 
 $breakpoints: (
-  'small':  767px,
+  'small': 767px,
   'medium': 992px,
-  'large':  1200px
+  'large': 1200px,
 );
 
 // @import 'theme/mustard';
@@ -250,7 +250,6 @@ a {
       }
     }
     img {
-
     }
   }
 }

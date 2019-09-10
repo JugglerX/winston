@@ -1,0 +1,7 @@
+// $primary: {{ .Site.Data.theme.primary | default "#ffffff" }};
+// $secondary: {{ .Site.Data.theme.secondary | default "#424de2" }};
+// $black: {{ .Site.Data.theme.black | default "#1C1C1C" }};
+// $carbon: {{ .Site.Data.theme.carbon | default "#383838" }};
+// $font-family-heading: {{ .Site.Data.theme.fontFamilyHeading | default "'Poppins', sans-serif" }};
+// $font-family-paragraph: {{ .Site.Data.theme.fontFamilyParagraph | default "Helvetica, sans-serif" }};
+// $font-family-mono: {{ .Site.Data.theme.fontFamilyMono | default "monospace" }};

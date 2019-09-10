@@ -30,190 +30,175 @@ const themes = {
     scssFolder: './winston-jekyll/_sass',
     jsFolder: './winston-jekyll/js',
     imagesFolder: './winston-jekyll/images',
-    contentFolder: './winston-hugo/_posts',
+    contentFolder: './winston-jekyll/_posts',
+    dataFolder: './winston-jekyll/_data',
+  },
+  hexo: {
+    ssg: 'hexo',
+    themeFolder: './winston-hexo',
+    scssFolder: './winston-hexo/themes/winston/source/sass',
+    jsFolder: './winston-hexo/themes/winston/source/js',
+    imagesFolder: './winston-hexo/themes/winston/source/images',
+    contentFolder: './winston-hexo/source',
   },
 };
 
 for (let ssg in themes) {
-  console.log(themes[ssg].themeFolder);
+  const theme = themes[ssg];
 
-  fs.copy(scssFolder, themes[ssg].scssFolder, err => {
+  fs.copy(scssFolder, theme.scssFolder, err => {
     if (err) return console.error(err);
-    console.log(`copied ${scssFolder} folder => ${themes[ssg].scssFolder}`);
+    console.log(`copied ${scssFolder} folder => ${theme.scssFolder}`);
   });
-  fs.copy(jsFolder, themes[ssg].jsFolder, err => {
+  fs.copy(jsFolder, theme.jsFolder, err => {
     if (err) return console.error(err);
-    console.log(`copied ${jsFolder} folder => ${themes[ssg].jsFolder}`);
+    console.log(`copied ${jsFolder} folder => ${theme.jsFolder}`);
   });
-  fs.copy(imagesFolder, themes[ssg].imagesFolder, err => {
+  fs.copy(imagesFolder, theme.imagesFolder, err => {
     if (err) return console.error(err);
-    console.log(`copied ${imagesFolder} folder => ${themes[ssg].imagesFolder}`);
+    console.log(`copied ${imagesFolder} folder => ${theme.imagesFolder}`);
   });
 
-  if (themes[ssg].ssg === 'hugo') {
-    // Copy Content Folder
-    fs.remove(themes[ssg].contentFolder, err => {
-      if (err) return console.error(err);
-      console.log(`removed ${themes[ssg].contentFolder} folder`);
-
-      fs.copy(contentFolder, themes[ssg].contentFolder, err => {
-        if (err) return console.error(err);
-        console.log(
-          `copied ${contentFolder} folder => ${themes[ssg].contentFolder}`
-        );
-      });
-    });
-
-    // Copy Data Folder
-    fs.remove(themes[ssg].dataFolder, err => {
-      if (err) return console.error(err);
-      console.log(`removed ${themes[ssg].dataFolder} folder`);
-
-      fs.copy(dataFolder, themes[ssg].dataFolder, err => {
-        if (err) return console.error(err);
-        console.log(
-          `copied ${dataFolder} folder => ${themes[ssg].dataFolder}`
-        );
-      });
-    });
+  switch (theme.ssg) {
+    case 'hugo':
+      copyHugo(theme);
+      break;
+    case 'jekyll':
+      copyJekyll(theme);
+      break;
+    case 'hexo':
+      copyHexo(theme);
+      break;
   }
-
-  if (themes[ssg].ssg === 'jekyll') {
-    fs.copy(
-      path.join(contentFolder, '/_index.md'),
-      path.join(themes[ssg].themeFolder, '/index.md'),
-      err => {
-        if (err) return console.error(err);
-        console.log(
-          `copied ${path.join(
-            contentFolder,
-            '/_index.md'
-          )} folder => ${path.join(themes[ssg].themeFolder, '/index.md')}`
-        );
-      }
-    );
-
-    fs.copy(
-      path.join(contentFolder, '/pages/about.md'),
-      path.join(themes[ssg].themeFolder, '/about.md'),
-      err => {
-        if (err) return console.error(err);
-        console.log(
-          `copied ${path.join(
-            contentFolder,
-            '/pages/about.md'
-          )} folder => ${path.join(themes[ssg].themeFolder, '/about.md')}`
-        );
-      }
-    );
-
-    fs.remove(path.join(themes[ssg].themeFolder, '/_posts'), err => {
-      if (err) return console.error(err);
-      console.log(
-        `removed ${path.join(themes[ssg].themeFolder, '/_posts')} folder`
-      );
-
-      fs.copy(
-        path.join(contentFolder, '/posts'),
-        path.join(themes[ssg].themeFolder, '/_posts'),
-        err => {
-          if (err) return console.error(err);
-          console.log(
-            `copied ${path.join(contentFolder, '/posts')} folder => ${path.join(
-              themes[ssg].themeFolder,
-              '/_posts'
-            )}`
-          );
-        }
-      );
-    });
-  }
-
-  //   fs.copy(
-  //     path.join(contentFolder, '/pages/about.md'),
-  //     path.join(themes[ssg].themeFolder, '/about.md')
-  //   ).then(() => {
-  //     if (err) return console.error(err);
-  //     console.log(`copied posts folder to ${themes[ssg].contentFolder}`);
-  //   });
-
-  //   fs.remove(path.join(themes[ssg].themeFolder, '/_posts'))
-  //     .then(() => {
-  //       fs.copy(
-  //         path.join(contentFolder, '/posts'),
-  //         path.join(themes[ssg].themeFolder, '/_posts')
-  //       ).then(() => {
-  //         if (err) return console.error(err);
-  //         console.log(`copied posts folder to ${themes[ssg].contentFolder}`);
-  //       });
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }
 }
 
-// themes.forEach(theme => {
-//   fs.copy(scssFolder, theme, err => {
-//     if (err) return console.error(err);
+function copyHugo(theme) {
+  // Copy Content Folder
+  fs.remove(theme.contentFolder, err => {
+    if (err) return console.error(err);
+    console.log(`removed ${theme.contentFolder} folder`);
+    fs.copy(contentFolder, theme.contentFolder, err => {
+      if (err) return console.error(err);
+      console.log(`copied ${contentFolder} folder => ${theme.contentFolder}`);
+    });
+  });
 
-//     console.log('success!');
-//   }); // copies directory, even if it has subdirectories or files
-// });
+  // Copy Data Folder
+  fs.remove(theme.dataFolder, err => {
+    if (err) return console.error(err);
+    console.log(`removed ${theme.dataFolder} folder`);
+    fs.copy(dataFolder, theme.dataFolder, err => {
+      if (err) return console.error(err);
+      console.log(`copied ${dataFolder} folder => ${theme.dataFolder}`);
+    });
+  });
+}
 
-// const token = process.env.GITHUB_TOKEN;
+function copyJekyll(theme) {
+  // Copy Data Folder
+  fs.remove(theme.dataFolder, err => {
+    if (err) return console.error(err);
+    console.log(`removed ${theme.dataFolder} folder`);
+    fs.copy(dataFolder, theme.dataFolder, err => {
+      if (err) return console.error(err);
+      console.log(`copied ${dataFolder} folder => ${theme.dataFolder}`);
+    });
+  });
 
-// loadTheme = async file => {
-//   console.log(file);
-//   const data = fs.readFileSync(path.join(themesFolder, file));
-//   const frontmatter = yamlFront.loadFront(data);
+  fs.copy(
+    path.join(contentFolder, '/_index.md'),
+    path.join(theme.themeFolder, '/index.md'),
+    err => {
+      if (err) return console.error(err);
+      console.log(
+        `copied ${path.join(contentFolder, '/_index.md')} folder => ${path.join(
+          theme.themeFolder,
+          '/index.md'
+        )}`
+      );
+    }
+  );
 
-//   if (frontmatter.github) {
-//     let github = gh(frontmatter.github);
-//     let themeGithubData = {
-//       name: github.name,
-//       owner: github.owner,
-//       repo: github.repo,
-//       demo: frontmatter.demo,
-//     };
+  fs.copy(
+    path.join(contentFolder, '/pages/about.md'),
+    path.join(theme.themeFolder, '/about.md'),
+    err => {
+      if (err) return console.error(err);
+      console.log(
+        `copied ${path.join(
+          contentFolder,
+          '/pages/about.md'
+        )} folder => ${path.join(theme.themeFolder, '/about.md')}`
+      );
+    }
+  );
 
-//     repoResponse = await axios.get(
-//       `https://api.github.com/repos/${github.repo}`,
-//       {
-//         headers: {
-//           Authorization: `Token ${token}`,
-//         },
-//       }
-//     );
+  fs.remove(path.join(theme.themeFolder, '/_posts'), err => {
+    if (err) return console.error(err);
+    console.log(`removed ${path.join(theme.themeFolder, '/_posts')} folder`);
 
-//     themeGithubData.stars = repoResponse.data.stargazers_count;
-//     themeData.push(themeGithubData);
-//   }
-// };
+    fs.copy(
+      path.join(contentFolder, '/posts'),
+      path.join(theme.themeFolder, '/_posts'),
+      err => {
+        if (err) return console.error(err);
+        console.log(
+          `copied ${path.join(contentFolder, '/posts')} folder => ${path.join(
+            theme.themeFolder,
+            '/_posts'
+          )}`
+        );
+      }
+    );
+  });
+}
 
-// Promise.all(themeFiles.map(file => loadTheme(file)))
-//   .then(res => {
-//     fs.writeFileSync('./data/stars.json', JSON.stringify(themeData));
-//   })
-//   .catch(error => {
-//     console.log(error.message, error.config.url);
-//   });
+function copyHexo(theme) {
+  console.log(theme);
+  fs.copy(
+    path.join(contentFolder, '/_index.md'),
+    path.join(theme.contentFolder, '/index.md'),
+    err => {
+      if (err) return console.error(err);
+      console.log(
+        `copied ${path.join(contentFolder, '/_index.md')} folder => ${path.join(
+          theme.contentFolder,
+          '/index.md'
+        )}`
+      );
+    }
+  );
 
-// const imageFiles = fs.readdirSync('./static/hires');
+  fs.copy(
+    path.join(contentFolder, '/pages/about.md'),
+    path.join(theme.contentFolder, '/about.md'),
+    err => {
+      if (err) return console.error(err);
+      console.log(
+        `copied ${path.join(
+          contentFolder,
+          '/pages/about.md'
+        )} folder => ${path.join(theme.contentFolder, '/about.md')}`
+      );
+    }
+  );
 
-// imageFiles.forEach(image => {
-//   im.crop(
-//     {
-//       srcPath: `./static/hires/${image}`,
-//       dstPath: `./static/images/theme/thumbnail/${image}`,
-//       width: 280,
-//       height: 180,
-//       quality: 1,
-//       gravity: 'North',
-//     },
-//     function(err, stdout, stderr) {
-//       if (err) throw err;
-//       console.log(`resized ${image} to 280x180`);
-//     }
-//   );
-// });
+  fs.remove(path.join(theme.contentFolder, '/_posts'), err => {
+    if (err) return console.error(err);
+    console.log(`removed ${path.join(theme.contentFolder, '/_posts')} folder`);
+
+    fs.copy(
+      path.join(contentFolder, '/posts'),
+      path.join(theme.contentFolder, '/_posts'),
+      err => {
+        if (err) return console.error(err);
+        console.log(
+          `copied ${path.join(contentFolder, '/posts')} folder => ${path.join(
+            theme.contentFolder,
+            '/_posts'
+          )}`
+        );
+      }
+    );
+  });
+}
