@@ -40,6 +40,10 @@ const themes = {
         src: 'posts/post2.md',
         dst: 'exampleSite/content/blog/post2.md',
       },
+      {
+        src: 'posts/post3.md',
+        dst: 'exampleSite/content/blog/post3.md',
+      },
     ],
   },
   jekyll: {
@@ -71,6 +75,10 @@ const themes = {
         src: 'posts/post2.md',
         dst: 'collections/_blog/post2.md',
       },
+      {
+        src: 'posts/post3.md',
+        dst: 'collections/_blog/post3.md',
+      },
     ],
   },
   hexo: {
@@ -91,7 +99,7 @@ const themes = {
         dst: 'about.md',
       },
       {
-        src: 'post/_index.md',
+        src: 'posts/_index.md',
         dst: 'blog.md',
       },
     ],

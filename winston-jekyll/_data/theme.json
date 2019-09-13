@@ -5,6 +5,7 @@
   "showPostsOnHomepage": true,
   "showAuthor": true,
   "addDot": true,
+  "showSummaryDescription": true,
   "primary": "#ffffff",
   "secondary": "#424de2",
   "black": "#1C1C1C",

@@ -4,17 +4,18 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  font-size: 16px;
+  font-family: $font-family-heading;
   @include breakpoint('small') {
     border-bottom: 2px solid $black;
+    padding-bottom: 5px;
     margin-bottom: 50px;
   }
-  .header-logo {
-    font-size: 16px;
+  a.header-logo {
     font-weight: bold;
-    font-family: $font-family-heading;
-    color: $black;
     text-transform: uppercase;
     text-decoration: none;
+    color: $black;
   }
 }
 
@@ -24,19 +25,13 @@
     display: block;
   }
   > ul {
-    margin: 0;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     > li {
-      list-style: none;
-      font-size: 14px;
       margin-right: 10px;
       > a {
         display: inline-block;
-        font-weight: bold;
-        text-transform: uppercase;
         text-decoration: none;
         color: $secondary;
         &:hover {

@@ -1,8 +1,8 @@
 ---
 layout: blog
 title: It's a beautiful thing, the destruction of words
-date: 2019-01-04
-description: 'As soon as Winston had dealt with each of the messages, he clipped his speakwritten corrections to the appropriate copy of the Times and pushed them into the pneumatic tube. Then, with a movement which was as nearly as possible unconscious, he crumpled up the original message and any notes that he himself had made, and dropped them into the memory hole to be devoured by the flames.'
+date: 2019-08-13
+description: 'As soon as Winston had dealt with each of the messages, he clipped his speakwritten corrections to the appropriate copy of the Times and pushed them into the pneumatic tube. '
 image: images/cctv.jpeg
 ---
 

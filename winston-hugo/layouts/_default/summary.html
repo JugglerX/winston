@@ -1,5 +1,7 @@
 <div class="summary">
   <h2 class="summary-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
   <div class="summary-date">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</div>
+  {{ if .Site.Data.theme.showSummaryDescription }}
   <p class="summary-description">{{ .Params.description }}</p>
+  {{ end }}
 </div>

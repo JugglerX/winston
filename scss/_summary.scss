@@ -6,7 +6,7 @@
     font-size: 18px;
     line-height: 26px;
   }
-  .summary-title {
+  h2.summary-title {
     margin-bottom: 16px;
     font-family: $font-family-heading;
     width: 80%;
@@ -14,8 +14,9 @@
     line-height: 38px;
     color: $black;
     @include breakpoint('small') {
-      font-size: 50px;
-      line-height: 56px;
+      width: 80%;
+      font-size: 52px;
+      line-height: 58px;
     }
     a {
       color: $secondary;
@@ -29,10 +30,7 @@
     font-weight: bold;
     color: $black;
   }
-  .summary-description {
+  p.summary-description {
     color: $carbon;
-    @include breakpoint('small') {
-      width: 90%;
-    }
   }
 }

@@ -36,9 +36,11 @@ $breakpoints: (
 body {
   background-color: $primary;
   font-family: $font-family-paragraph;
+  color: $black;
   margin: 0;
   padding: 30px;
+  overflow-x: hidden;
   @include breakpoint('small') {
-    padding: 50px 50px 50px 50px;
+    padding: 50px;
   }
 }
