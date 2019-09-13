@@ -1,10 +1,14 @@
 .intro {
   h1 {
     font-family: $font-family-heading;
-    font-size: 90px;
-    line-height: 96px;
-    width: 80%;
+    font-size: 60px;
+    line-height: 66px;
     color: $black;
+    @include breakpoint('small') {
+      width: 80%;
+      font-size: 90px;
+      line-height: 96px;
+    }
     strong {
       color: $secondary;
     }
@@ -17,9 +21,13 @@
     color: $black;
   }
   p {
-    font-size: 22px;
-    line-height: 28px;
+    font-size: 20px;
+    line-height: 26px;
     color: $carbon;
+    @include breakpoint('small') {
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
   a {
     color: $secondary;
@@ -30,5 +38,6 @@
   }
   img {
     margin-bottom: 50px;
+    max-width: 100%;
   }
 }

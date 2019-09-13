@@ -1,9 +1,6 @@
 {{ define "body_classes" }}page-single{{ end }}
 
 {{ define "main" }}
-{{ if .Site.Data.theme.showAuthor }}
-{{ partial "author.html" . }}
-{{ end }}
 <div class="intro">
   <h1>{{ .Title }}</h1>
   {{ if .Params.image }}

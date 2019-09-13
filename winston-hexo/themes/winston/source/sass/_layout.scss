@@ -1,0 +1,23 @@
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: $primary;
+  @include breakpoint('small') {
+    padding: 50px 50px 50px 50px;
+  }
+}
+
+.paper {
+  background: $primary;
+  border-radius: 1px 1px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+  @include breakpoint('small') {
+    padding-top: 50px;
+  }
+}
+
+.dot {
+  color: $secondary;
+}

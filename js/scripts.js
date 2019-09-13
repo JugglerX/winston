@@ -4,7 +4,7 @@ var menuContainer = document.querySelector('#main-menu-mobile');
 
 menuTrigger.onclick = function() {
   menuContainer.classList.toggle('open');
-  menuTrigger.classList.toggle('is-active');
+  menuTrigger.classList.toggle('open');
   body.classList.toggle('lock-scroll');
 };
 // test

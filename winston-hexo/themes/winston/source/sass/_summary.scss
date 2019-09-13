@@ -1,28 +1,38 @@
 .summary {
   margin-bottom: 50px;
-  h2 {
-    font-family: $font-family-heading;
-    font-size: 50px;
-    line-height: 56px;
-    width: 80%;
-    color: $black;
-  }
-  p {
-    font-size: 20px;
-    line-height: 28px;
-    color: $carbon;
-  }
-  a {
-    color: $secondary;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
+  font-size: 18px;
+  line-height: 24px;
+  @include breakpoint('small') {
+    font-size: 18px;
+    line-height: 26px;
   }
   .summary-title {
     margin-bottom: 16px;
+    font-family: $font-family-heading;
+    width: 80%;
+    font-size: 34px;
+    line-height: 38px;
+    color: $black;
+    @include breakpoint('small') {
+      font-size: 50px;
+      line-height: 56px;
+    }
+    a {
+      color: $secondary;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
   .summary-date {
     font-weight: bold;
+    color: $black;
+  }
+  .summary-description {
+    color: $carbon;
+    @include breakpoint('small') {
+      width: 90%;
+    }
   }
 }

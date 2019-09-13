@@ -19,6 +19,7 @@
 </head>
 
 <body class='page {{ block "body_classes" . }}{{ end }}'>
+    {{ partial "main-menu-mobile.html" . }}
   <div id="wrapper" class="wrapper">
     {{ partial "header.html" . }}
     {{ block "main" . }}
