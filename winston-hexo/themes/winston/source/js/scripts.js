@@ -7,4 +7,3 @@ menuTrigger.onclick = function() {
   menuTrigger.classList.toggle('open');
   body.classList.toggle('lock-scroll');
 };
-// test

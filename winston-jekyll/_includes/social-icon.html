@@ -1,4 +1,4 @@
-<span class="social-icon social-icon-{{ .name | urlize }}">
+<span class="social-icon social-icon-{{ include.social.name | slugify }}">
   <a href="{{ include.social.url | relative_url }}" target="blank">
     <img src="{{ include.social.image | relative_url }}" width="24" height="24" />
   </a>

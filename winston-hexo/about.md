@@ -1,19 +1,19 @@
 ---
+layout: basic
 title: 'About'
-image: https://source.unsplash.com/XrSzacdYbtQ/800x600
+image: images/writer.jpeg
 ---
-
 
 ## Contra vagos
 
-Lorem *markdownum notam si* lintea meque certa [en meumque
+Lorem _markdownum notam si_ lintea meque certa [en meumque
 illis](#cohibentem-iuvenaliter), diu fatigant, nec praedae concustodita arcet.
 [Paviunt castris](#nemorisque-urimur-violentus) cur errat ventis causa! Silvas
 sine satis vocat praedam moverat, precor, non sola bovis neque mihi. Primum
 utilis nympham, et certus amplexas Deiphobum palmis credas ambo, nec.
 
 > Excidit gente, si orat suo quaeque dura Calydon nata? Pars auro post stetit
-> adfusique imis amplexus. Agmina per fabricator 
+> adfusique imis amplexus. Agmina per fabricator
 > mittere Erymanthon habetque tot.
 
 **Cineres Nile ipsa** origine discurrunt adest Unde, et quem clausus, imo,
@@ -44,4 +44,4 @@ deus inserit sit tua. Pompa non precor procumbit inania lacrimas sacra credetis:
 Oceano, femina?
 
 Bacchantum neque. Humum ut violasse quam inmotos! Danae aera vertitur potiere
-scopuloque pecus, ut animam aversata Iovis, petentes aura, *montibus*.
+scopuloque pecus, ut animam aversata Iovis, petentes aura, _montibus_.

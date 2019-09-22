@@ -1,16 +1,13 @@
 ---
 layout: default
-body_classes: page-home
+body_classes: page-blog
 ---
 
 <div class="intro">
   <h1>{{ page.title }}{% if site.data.theme.addDot %}<span class="dot">.</span>{% endif %}</h1>
   {% if page.description %}<p>{{ page.description }}</p>{% endif %}
 </div>
-
-{{content}}
-
-{% if site.data.theme.showPostsOnHomepage %}
+{{ content }}
 {% for post in site.blog %}
 <div class="summary">
   <h2 class="summary-title"><a href="{{  post.url }}">{{ post.title }}</a></h2>
@@ -20,4 +17,3 @@ body_classes: page-home
   {% endif %}
 </div>
 {% endfor %}
-{% endif %}

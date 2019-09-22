@@ -12,12 +12,15 @@
 </head>
 
 <body
-  class='page {% if page.body_classes %}{{ page.body_classes }}{% elsif layout.body_classes %}{{ layout.body_classes }}{% endif %}'>
+  class='page {% if page.body_classes %}{{ page.body_classes }}{% endif %}'>
+  {% include main-menu-mobile.html %}
   <div id="wrapper" class="wrapper">
     {% include header.html %}
     {{content}}
     {% include footer.html %}
   </div>
+
+  <script type="text/javascript" src="{{ '/js/scripts.js' | relative_url }}"></script>
 
   {% include google-analytics.html %}
 </body>

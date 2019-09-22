@@ -3,5 +3,13 @@ layout: default
 body_classes: page-basic
 ---
 
-<h1>{{ page.title }}</h1>
-<div class="content">{{ content }}</div>
+<div class="intro">
+  <h1>{{ page.title }}{% if site.data.theme.addDot %}<span class="dot">.</span>{% endif %}</h1>
+  {% if page.image %}
+  <img src="{{ page.image | relative_url }}" />
+  {% endif %}
+</div>
+
+<div class="content">
+  {{ content }}
+</div>
