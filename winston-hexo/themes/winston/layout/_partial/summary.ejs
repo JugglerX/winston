@@ -1,0 +1,7 @@
+<div class="summary">
+  <h2 class="summary-title"><a href="<%- config.root %><%- item.path %>"><%= item.title %></a></h2>
+  <div class="summary-date"><%= item.date %></div>
+  <% if (site.data.theme.showSummaryDescription) { %>
+  <p class="summary-description"><%= item.description %></p>
+  <% } %>
+</div>

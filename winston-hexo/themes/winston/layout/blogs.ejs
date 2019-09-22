@@ -2,7 +2,9 @@
   <h1><%= config.title %><% if (site.data.theme.addDot) { %><span class="dot">.</span><% } %></h1>
   <% if (page.description) { %><p><%= page.description %></p><% } %>
 </div>
+
 <%- page.content %>
+asdads
 <section class="tiles">
     <% site.posts.forEach(function(item, index){ %>
         <%- partial('_partial/summary', {item: item, index: index}) %>

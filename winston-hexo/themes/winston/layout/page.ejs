@@ -1,1 +1,8 @@
-<%- partial('_partial/article-page', {item: page}) %>
+<div class="intro">
+  <h1><%= config.title %><% if (site.data.theme.addDot) { %><span class="dot">.</span><% } %></h1>
+  <% if (page.image) { %><img src="<%= page.image %>"/><% } %>
+</div>
+
+<div class="content">
+ <%- page.content %>
+</div>

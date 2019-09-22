@@ -88,19 +88,31 @@ const themes = {
     jsFolder: './winston-hexo/themes/winston/source/js',
     imagesFolder: './winston-hexo/themes/winston/source/images',
     contentFolder: './winston-hexo/source',
-    dataFolder: './winston-hexo/_data',
+    dataFolder: './winston-hexo/source/_data',
     content: [
       {
         src: '_index.md',
-        dst: 'index.md',
+        dst: 'source/index.md',
       },
       {
         src: 'pages/about.md',
-        dst: 'about.md',
+        dst: 'source/about.md',
       },
       {
         src: 'posts/_index.md',
-        dst: 'blog.md',
+        dst: 'source/blog.md',
+      },
+      {
+        src: 'posts/post1.md',
+        dst: 'source/_posts/post1.md',
+      },
+      {
+        src: 'posts/post2.md',
+        dst: 'source/_posts/post2.md',
+      },
+      {
+        src: 'posts/post3.md',
+        dst: 'source/_posts/post3.md',
       },
     ],
   },
