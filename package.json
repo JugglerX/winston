@@ -1,7 +1,7 @@
 {
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "copy": "node ./build.js",
+    "build": "node ./build.js",
     "watch": "npm-watch copy"
   },
   "watch": {
