@@ -1,0 +1,46 @@
+// Font
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1:300,400,600,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,400,500,600,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+$primary: #ffffff;
+$secondary: #424de2;
+$black: #1c1c1c;
+$carbon: #383838;
+$font-family-heading: 'Poppins', sans-serif;
+$font-family-paragraph: Helvetica, sans-serif;
+$font-family-mono: monospace;
+
+$breakpoints: (
+  'small': 767px,
+  'medium': 992px,
+  'large': 1200px,
+);
+
+// @import 'theme/mustard';
+@import 'normalize';
+@import 'breakpoints';
+@import 'layout';
+@import 'header';
+@import 'content';
+@import 'social';
+@import 'author';
+@import 'intro';
+@import 'pagination';
+@import 'hamburger';
+@import 'summary';
+@import 'blog';
+@import 'pygments/github';
+
+body {
+  background-color: $primary;
+  font-family: $font-family-paragraph;
+  color: $black;
+  margin: 0;
+  padding: 30px;
+  overflow-x: hidden;
+  @include breakpoint('small') {
+    padding: 50px;
+  }
+}
