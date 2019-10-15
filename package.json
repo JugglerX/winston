@@ -2,10 +2,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node ./build.js",
-    "watch": "npm-watch copy"
+    "watch": "npm-watch"
   },
   "watch": {
-    "copy": {
+    "build": {
       "patterns": [
         "content",
         "data",

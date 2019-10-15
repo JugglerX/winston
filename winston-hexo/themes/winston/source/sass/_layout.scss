@@ -1,7 +1,6 @@
 .wrapper {
   max-width: 1000px;
   margin: 0 auto;
-  background-color: $primary;
   @include breakpoint('small') {
     padding: 50px 50px 50px 50px;
   }
@@ -20,5 +19,5 @@
 }
 
 .dot {
-  color: $secondary;
+  color: $primary;
 }

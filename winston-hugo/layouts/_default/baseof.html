@@ -12,8 +12,11 @@
   {{ $style := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" true) }}
   <link rel="stylesheet" href="{{ ($style).RelPermalink }}">
   {{ else }}
+  {{ $theme := resources.Get "scss/theme/mustard.scss" | toCSS (dict "targetPath" "css/mustard.css" "enableSourceMap" false) | minify | fingerprint}}
   {{ $style := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) }}
   <link rel="stylesheet" href="{{ ($style | minify | fingerprint).RelPermalink }}">
+
+  {{ $theme }}
   {{ end }}
 
 </head>
@@ -21,21 +24,25 @@
 <body class='page {{ block "body_classes" . }}{{ end }}'>
   {{ partial "main-menu-mobile.html" . }}
   <div id="wrapper" class="wrapper">
+    {{ partial "theme-switcher.html" . }}
     {{ partial "header.html" . }}
     {{ block "main" . }}
     {{ end }}
     {{ partial "footer.html" . }}
   </div>
 
+  {{ $themeSwitcher := resources.Get "js/theme-switcher.js" }}
   {{ $scripts := resources.Get "js/scripts.js" }}
 
-  {{ block "footer_js" . }}
-  {{ end }}
+  {{ $js := slice $themeSwitcher $scripts | resources.Concat "js/bundle.js" }}
 
   {{ if .Site.IsServer }}
-  <script type="text/javascript" src="{{ $scripts.RelPermalink }}"></script>
+  <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
   {{ else }}
-  <script type="text/javascript" src="{{ ($scripts | minify | fingerprint).RelPermalink }}"></script>
+  <script type="text/javascript" src="{{ ($js | minify | fingerprint).RelPermalink }}"></script>
+  {{ end }}
+
+  {{ block "footer_js" . }}
   {{ end }}
 
   {{ partial "google-analytics.html" . }}

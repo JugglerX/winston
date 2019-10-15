@@ -4,7 +4,6 @@
     font-family: $font-family-heading;
     font-size: 48px;
     line-height: 56px;
-    color: $black;
     margin-top: 0;
     margin-bottom: 30px;
     @include breakpoint('small') {
@@ -14,7 +13,7 @@
       margin-bottom: 50px;
     }
     strong {
-      color: $secondary;
+      color: $primary;
     }
   }
   h2 {
@@ -22,22 +21,13 @@
     font-size: 50px;
     line-height: 56px;
     width: 80%;
-    color: $black;
   }
   p {
     font-size: 20px;
     line-height: 26px;
-    color: $carbon;
     @include breakpoint('small') {
       font-size: 24px;
       line-height: 34px;
-    }
-  }
-  a {
-    color: $secondary;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
     }
   }
   img {

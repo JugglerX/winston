@@ -1,18 +1,18 @@
 .author {
   margin-top: 30px;
   margin-bottom: 30px;
+  color: $heading-color;
   img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     display: inline-block;
     vertical-align: middle;
-    border: 2px solid $black;
+    border: 2px solid $heading-color;
   }
   .author-date {
     display: inline-block;
     vertical-align: middle;
-    color: $carbon;
   }
   .author-name {
     display: inline-block;

@@ -13,14 +13,14 @@
     width: 80%;
     font-size: 34px;
     line-height: 38px;
-    color: $black;
+    // color: $black;
     @include breakpoint('small') {
       width: 80%;
       font-size: 52px;
       line-height: 58px;
     }
     a {
-      color: $secondary;
+      // color: $secondary;
       text-decoration: none;
       &:hover {
         text-decoration: underline;
@@ -29,9 +29,9 @@
   }
   .summary-date {
     font-weight: bold;
-    color: $black;
+    // color: $black;
   }
   p.summary-description {
-    color: $carbon;
+    // color: $carbon;
   }
 }
