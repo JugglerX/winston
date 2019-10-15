@@ -1,5 +1,6 @@
-<div class="theme">
-  <button value="dark">dark</button>
-  <button value="calm">calm</button>
-  <button value="light">light</button>
+<div class="theme-switcher">
+  <button class="swatch" value="reset">reset</button>
+  {{ range .Site.Data.theme.themes }}
+  <button class="swatch" value="{{ . }}">{{ . }}</button>
+  {{ end }}
 </div>

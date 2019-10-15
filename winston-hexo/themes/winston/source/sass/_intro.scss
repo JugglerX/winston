@@ -1,7 +1,6 @@
 .intro {
   margin-bottom: 30px;
   h1 {
-    font-family: $font-family-heading;
     font-size: 48px;
     line-height: 56px;
     margin-top: 0;
@@ -13,11 +12,10 @@
       margin-bottom: 50px;
     }
     strong {
-      color: $primary;
+      color: var(--highlight);
     }
   }
   h2 {
-    font-family: $font-family-heading;
     font-size: 50px;
     line-height: 56px;
     width: 80%;

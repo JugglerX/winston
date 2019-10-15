@@ -9,11 +9,9 @@
   }
   h2.summary-title {
     margin-bottom: 16px;
-    font-family: $font-family-heading;
     width: 80%;
     font-size: 34px;
     line-height: 38px;
-    // color: $black;
     @include breakpoint('small') {
       width: 80%;
       font-size: 52px;

@@ -9,7 +9,7 @@ ul.pagination {
       display: inline-block;
       text-decoration: none;
       padding: 5px 8px;
-      border: 2px solid $heading-color;
+      border: 2px solid var(--heading-color);
       border-right: none;
     }
     &.active {
@@ -18,7 +18,7 @@ ul.pagination {
     }
     &:last-of-type {
       a {
-        border-right: 2px solid $heading-color;
+        border-right: 2px solid var(--heading-color);
       }
     }
   }

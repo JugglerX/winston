@@ -5,7 +5,7 @@
   margin-bottom: 30px;
   font-size: 16px;
   @include breakpoint('small') {
-    border-bottom: 2px solid $heading-color;
+    border-bottom: 2px solid var(--heading-color);
     padding-bottom: 5px;
     margin-bottom: 50px;
   }
@@ -54,7 +54,7 @@
 
 .main-menu-mobile {
   position: fixed;
-  background: $primary;
+  background: var(--highlight);
   top: 0;
   left: 0;
   width: 100%;
@@ -94,7 +94,7 @@
   }
   ul {
     font-size: 30px;
-    font-family: $font-family-heading;
+    font-family: var(--font-family-heading);
     text-align: center;
     list-style: none;
     padding: 0;

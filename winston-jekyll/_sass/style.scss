@@ -1,55 +1,18 @@
 // Font
-// @import url('https://fonts.googleapis.com/css?family=Gothic+A1:300,400,600,700,900&display=swap');
+
 // @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap');
-// @import url('https://fonts.googleapis.com/css?family=Poppins:200,400,500,600,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,400,500,600,700,900&display=swap');
 // @import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
-
-@function set-text-color($color) {
-  @if (lightness($color) > 90) {
-    @return #424141;
-  } @else if (lightness($color) < 20) {
-    @return invert($background-color);
-  } @else {
-    @return invert($background-color);
-  }
-}
-
-@function set-heading-color($color) {
-  @if (lightness($color) > 90) {
-    @return #2c2a2a;
-  } @else if (lightness($color) < 30) {
-    @return #ffffff;
-  } @else {
-    @return invert($background-color);
-  }
-}
-
-@function v($var) {
-  @return var(--#{$var});
-}
 
 :root {
   --font-family-heading: 'Poppins', sans-serif;
   --font-family-paragraph: Helvetica, sans-serif;
   --font-family-mono: monospace;
   --background-color: #ffffff;
-  --primary: #ff1654;
-  --text-color: set-text-color(v(background-color));
-  --heading-color: set-heading-color(v(background-color));
+  --highlight: #7b16ff;
+  --text-color: #4e5157;
+  --heading-color: #1c1b1d;
 }
-
-$font-family-heading: 'Poppins', sans-serif;
-$font-family-paragraph: Helvetica, sans-serif;
-$font-family-mono: monospace;
-
-// $background-color: #393239;
-$background-color: #ffffff;
-// $background-color: #FF1654;
-$primary: #ff1654;
-// $primary: rgb(22, 65, 255);
-
-$text-color: set-text-color($background-color);
-$heading-color: set-heading-color($background-color);
 
 $breakpoints: (
   'small': 767px,
@@ -57,9 +20,6 @@ $breakpoints: (
   'large': 1200px,
 );
 
-@import 'theme/white.scss';
-// @import "theme/sunkist-dark.scss";
-// @import 'theme/mustard';
 @import 'normalize';
 @import 'breakpoints';
 @import 'layout';
@@ -73,11 +33,12 @@ $breakpoints: (
 @import 'summary';
 @import 'blog';
 @import 'pygments/github';
+@import 'theme-switcher';
 
 body {
-  background-color: $background-color;
-  font-family: $font-family-paragraph;
-  color: $text-color;
+  background: var(--background-color);
+  font-family: var(--font-family-paragraph);
+  color: var(--text-color);
   margin: 0;
   padding: 30px;
   overflow-x: hidden;
@@ -86,22 +47,17 @@ body {
   }
 }
 
-body {
-  background-color: var(--bg, #ffffff);
-  color: var(--bg-text, black);
-}
-
 a {
-  color: $primary;
+  color: var(--highlight);
 }
 
 h1,
 h2,
 h3 {
-  color: $heading-color;
-  font-family: $font-family-heading;
+  color: var(--heading-color);
+  font-family: var(--font-family-heading);
 }
 p {
-  color: $text-color;
-  font-family: $font-family-paragraph;
+  color: var(--text-color);
+  font-family: var(--font-family-paragraph);
 }

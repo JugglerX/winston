@@ -79,7 +79,7 @@
   }
   code,
   pre {
-    font-family: $font-family-mono;
+    font-family: var(--font-family-mono);
   }
   .highlight {
     pre {
@@ -88,7 +88,7 @@
       line-height: 19px;
       padding: 30px;
       overflow: auto;
-      font-family: $font-family-mono;
+      font-family: var(--font-family-mono);
     }
   }
 }

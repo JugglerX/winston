@@ -9,6 +9,7 @@ const jsFolder = path.join(root, './js');
 const imagesFolder = path.join(root, './images');
 const contentFolder = path.join(root, './content');
 const dataFolder = path.join(root, './data');
+const cssFolder = path.join(root, './css');
 
 const themes = {
   hugo: {
@@ -17,6 +18,7 @@ const themes = {
     scssFolder: 'winston-hugo/assets/scss',
     jsFolder: 'winston-hugo/assets/js',
     imagesFolder: 'winston-hugo/static/images',
+    cssFolder: 'winston-hugo/static/css',
     contentFolder: 'winston-hugo/exampleSite/content',
     dataFolder: 'winston-hugo/exampleSite/data',
     content: [
@@ -186,6 +188,12 @@ async function copyFiles() {
       await fs
         .copy(imagesFolder, theme.imagesFolder)
         .then(() => console.log(`Copied ${theme.imagesFolder}`));
+      await fs
+        .remove(theme.cssFolder)
+        .then(() => console.log(`Removed ${theme.cssFolder}`));
+      await fs
+        .copy(cssFolder, theme.cssFolder)
+        .then(() => console.log(`Copied ${theme.cssFolder}`));
     } catch (err) {
       console.error(err);
     }

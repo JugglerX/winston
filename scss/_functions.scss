@@ -1,0 +1,23 @@
+@function set-text-color($color) {
+  @if (lightness($color) > 90) {
+    @return #424141;
+  } @else if (lightness($color) < 20) {
+    @return invert(--background-color);
+  } @else {
+    @return invert(--background-color);
+  }
+}
+
+@function set-heading-color($color) {
+  @if (lightness($color) > 90) {
+    @return #2c2a2a;
+  } @else if (lightness($color) < 30) {
+    @return #ffffff;
+  } @else {
+    @return invert(--background-color);
+  }
+}
+
+@function v($var) {
+  @return var(--#{$var});
+}

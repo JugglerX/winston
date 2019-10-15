@@ -7,3 +7,6 @@ menuTrigger.onclick = function() {
   menuTrigger.classList.toggle('open');
   body.classList.toggle('lock-scroll');
 };
+
+// document.querySelector('head').innerHTML +=
+//   '<link rel="stylesheet" href="css/mustard.css" type="text/css"/>';
