@@ -11,7 +11,8 @@
         "data",
         "scss",
         "js",
-        "images"
+        "images",
+        "css"
       ],
       "verbose": true,
       "extensions": "*",

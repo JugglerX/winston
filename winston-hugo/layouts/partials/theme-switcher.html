@@ -1,6 +1,6 @@
 <div class="theme-switcher">
-  <button class="swatch" value="reset">reset</button>
+  <button class="swatch" value="reset" style="background-color: #ffffff"></button>
   {{ range .Site.Data.theme.themes }}
-  <button class="swatch" value="{{ . }}">{{ . }}</button>
+  <button class="swatch" value="{{ .name }}" style="background-color: {{ .swatch }}"></button>
   {{ end }}
 </div>

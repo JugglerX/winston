@@ -5,7 +5,6 @@
   margin-bottom: 30px;
   font-size: 16px;
   @include breakpoint('small') {
-    border-bottom: 2px solid var(--heading-color);
     padding-bottom: 5px;
     margin-bottom: 50px;
   }

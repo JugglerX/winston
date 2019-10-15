@@ -12,6 +12,7 @@
   --highlight: #7b16ff;
   --text-color: #4e5157;
   --heading-color: #1c1b1d;
+  --frame: 20px solid var(--highlight);
 }
 
 $breakpoints: (
@@ -42,6 +43,7 @@ body {
   margin: 0;
   padding: 30px;
   overflow-x: hidden;
+  border: var(--frame);
   @include breakpoint('small') {
     padding: 50px;
   }

@@ -14,8 +14,10 @@
   "fontFamilyParagraph": "Helvetica, sans-serif",
   "fontFamilyMono": "monospace",
   "themes": [
-    "strawberry",
-    "mustard"
+    {
+      "name": "strawberry",
+      "swatch": "#ff1654"
+    }
   ],
   "theme": "strawberry",
   "homepage_meta_tags": {
