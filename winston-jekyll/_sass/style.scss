@@ -8,7 +8,6 @@
   --font-family-heading: 'Poppins', sans-serif;
   --font-family-paragraph: Helvetica, sans-serif;
   --font-family-mono: monospace;
-  --frame: 20px solid var(--highlight);
   --background-color: #ffffff;
   --highlight: #7b16ff;
   --text-color: #4e5157;
@@ -27,16 +26,15 @@ $breakpoints: (
 @import 'layout';
 @import 'header';
 @import 'content';
-@import 'social';
-@import 'author';
 @import 'intro';
 @import 'pagination';
 @import 'hamburger';
 @import 'summary';
-@import 'blog';
+@import 'social';
+@import 'author';
+// @import 'blog';
 @import 'pygments/github';
 @import 'theme-switcher';
-@import 'switch';
 
 @import 'tweaks/dot';
 @import 'tweaks/paper';
@@ -56,11 +54,17 @@ body {
 
 a {
   color: var(--highlight);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 h1,
 h2,
 h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
   color: var(--heading-color);
   font-family: var(--font-family-heading);
 }
@@ -69,4 +73,13 @@ p {
   font-family: var(--font-family-paragraph);
   font-size: 18px;
   line-height: 24px;
+}
+
+ol,ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    list-style: none;
+  }
 }

@@ -7,8 +7,8 @@
     font-size: 18px;
     line-height: 26px;
   }
-  h2.summary-title {
-    margin-bottom: 16px;
+  .summary-title {
+    margin: 16px 0 16px 0;
     width: 80%;
     font-size: 34px;
     line-height: 38px;
@@ -17,19 +17,8 @@
       font-size: 52px;
       line-height: 58px;
     }
-    a {
-      // color: $secondary;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
   }
   .summary-date {
     font-weight: bold;
-    // color: $black;
-  }
-  p.summary-description {
-    // color: $carbon;
   }
 }

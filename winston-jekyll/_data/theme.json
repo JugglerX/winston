@@ -1,14 +1,13 @@
 {
   "google_analytics_id": "",
-  "paper": false,
-  "edgy": true,
   "showAuthorOnHomepage": true,
+  "showAuthorOnPosts": true,
   "showPostsOnHomepage": true,
-  "showAuthorOnBlogPosts": true,
   "addDot": true,
   "showSummaryDescription": true,
+  "theme": "white",
   "style": {
-    "paper": true,
+    "paper": false,
     "frame": true
   },
   "themes": [
@@ -21,7 +20,6 @@
       "swatch": "#ff1654"
     }
   ],
-  "theme": "strawberry",
   "homepage_meta_tags": {
     "meta_description": "Hero is a multipurpose Hugo theme with fullscreen hero images and page sections. It contains content types for a business or portfolio site.",
     "meta_og_title": "Hugo Hero Theme",

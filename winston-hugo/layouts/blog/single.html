@@ -3,7 +3,7 @@
 
 {{ define "main" }}
 <div class="blog">
-  {{ if .Site.Data.theme.showAuthor }}
+  {{ if .Site.Data.theme.showAuthorOnPosts }}
   {{ partial "author.html" . }}
   {{ end }}
   <div class="intro">

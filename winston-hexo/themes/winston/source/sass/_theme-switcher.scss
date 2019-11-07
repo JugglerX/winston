@@ -27,6 +27,11 @@
         img {
           width: 100%;
         }
+        svg {
+          path {
+            fill: var(--highlight);
+          }
+        }
         &#generate {
           width: 14px;
         }

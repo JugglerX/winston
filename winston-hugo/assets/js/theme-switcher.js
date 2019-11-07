@@ -47,6 +47,7 @@ async function generateTheme() {
 }
 
 async function getColorScheme() {
+  console.log("get color scheme")
   fetch('http://colormind.io/api/', {
     method: 'POST',
     body: JSON.stringify({
@@ -63,6 +64,7 @@ async function getColorScheme() {
 }
 
 function applyColorScheme() {
+  console.log("apply color scheme")
   themeCssVars.forEach((property,index) => {
     const value = rgbToHex(...themeColorsArray[index]);
     document.documentElement.style.setProperty(property, value);
@@ -99,7 +101,6 @@ function hexToRgbArray(hex) {
     parseInt(result[3], 16)
   ] : null;
 }
-
 
 function generateThemeName() {
   console.log("Generate theme name:", themeColorsArray)
@@ -138,8 +139,8 @@ function getCssVarsFromDocument() {
   console.log("themeColorsArray", themeColorsArray);
 }
 
-const savedTheme = localStorage.getItem('theme');
-addCss(savedTheme);
+// const savedTheme = localStorage.getItem('theme');
+// addCss(savedTheme);
 getCssVarsFromDocument();
 generateThemeName(themeColorsArray)
 displayThemeName(themeName)

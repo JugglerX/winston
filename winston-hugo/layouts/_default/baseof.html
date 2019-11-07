@@ -17,6 +17,7 @@
   {{ end }}
 
   {{ $selectedTheme := printf "%s%s%s" "css/" .Site.Data.theme.theme ".css" }}
+  <link rel="stylesheet" href="{{ $selectedTheme }}">
 
 </head>
 {{ $themeStyle := slice "" }}
