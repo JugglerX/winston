@@ -1,6 +1,31 @@
-<div class="theme-switcher">
-  <button class="swatch" value="reset" style="background-color: #ffffff"></button>
-  {{ range .Site.Data.theme.themes }}
-  <button class="swatch" value="{{ .name }}" style="background-color: {{ .swatch }}"></button>
-  {{ end }}
+<div class="themer">
+
+  <div class="themer-options">
+    <div class="switch-container">
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+      <span class="switch-text">Paper</span>
+    </div>
+    <button data-switch="paper" class="">paper</button>
+    <button data-switch="frame" class="">frame</button>
+  </div>
+
+  <div class="themer-sidebar">
+    <div class="themer-controls">
+      <button id="sliders" class="themer-button"><img src="{{ "images/sliders-h-solid.svg" | relURL }}" /></button>
+      <button id="generate" class="themer-button"><img src="{{ "images/tint-solid.svg" | relURL }}" /></button>
+    </div>
+
+    <div class="themer-swatches">
+      <div class="swatch swatch-background-color"></div>
+      <div class="swatch swatch-text-color"></div>
+      <div class="swatch swatch-highlight"></div>
+      <div class="swatch swatch-heading-color"></div>
+      <div class="swatch swatch-edge"></div>
+    </div>
+
+    <div class="themer-name" id="theme-name"></div>
+  </div>
 </div>

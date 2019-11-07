@@ -8,11 +8,12 @@
   --font-family-heading: 'Poppins', sans-serif;
   --font-family-paragraph: Helvetica, sans-serif;
   --font-family-mono: monospace;
+  --frame: 20px solid var(--highlight);
   --background-color: #ffffff;
   --highlight: #7b16ff;
   --text-color: #4e5157;
   --heading-color: #1c1b1d;
-  --frame: 20px solid var(--highlight);
+  --edge: #e3fcf5;
 }
 
 $breakpoints: (
@@ -35,6 +36,11 @@ $breakpoints: (
 @import 'blog';
 @import 'pygments/github';
 @import 'theme-switcher';
+@import 'switch';
+
+@import 'tweaks/dot';
+@import 'tweaks/paper';
+@import 'tweaks/frame';
 
 body {
   background: var(--background-color);
@@ -43,7 +49,6 @@ body {
   margin: 0;
   padding: 30px;
   overflow-x: hidden;
-  border: var(--frame);
   @include breakpoint('small') {
     padding: 50px;
   }
@@ -62,4 +67,6 @@ h3 {
 p {
   color: var(--text-color);
   font-family: var(--font-family-paragraph);
+  font-size: 18px;
+  line-height: 24px;
 }

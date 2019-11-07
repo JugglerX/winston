@@ -2,18 +2,20 @@
   "google_analytics_id": "",
   "paper": false,
   "edgy": true,
+  "showAuthorOnHomepage": true,
   "showPostsOnHomepage": true,
-  "showAuthor": true,
+  "showAuthorOnBlogPosts": true,
   "addDot": true,
   "showSummaryDescription": true,
-  "primary": "#ffffff",
-  "secondary": "#424de2",
-  "black": "#1C1C1C",
-  "carbon": "#383838",
-  "fontFamilyHeading": "'Poppins', sans-serif",
-  "fontFamilyParagraph": "Helvetica, sans-serif",
-  "fontFamilyMono": "monospace",
+  "style": {
+    "paper": true,
+    "frame": true
+  },
   "themes": [
+    {
+      "name": "white",
+      "swatch": "#ffffff"
+    },
     {
       "name": "strawberry",
       "swatch": "#ff1654"
